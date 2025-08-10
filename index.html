@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QBox — iOS Apps Signer | Support iOS 12–26</title>
+  <meta name="description" content="QBox is an iOS signing tool that lets you install and test third‑party iOS apps without a computer." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <img src="assets/qbox-logo.svg" alt="QBox logo" class="logo" />
+      <div>
+        <h1 class="brand-title">QBox</h1>
+        <p class="brand-subtitle">iOS Apps Signer • iOS 12–26</p>
+      </div>
+    </div>
+    <nav class="lang">
+      <button id="lang-en" class="lang-btn active" aria-pressed="true">EN</button>
+      <button id="lang-ar" class="lang-btn">AR</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero container">
+    <div class="hero-text" data-i18n="hero_text">
+      QBox is an iOS signing tool that does not require a computer, used for installing and testing third‑party iOS apps.
+    </div>
+    <div class="cta-row">
+      <a class="btn primary" href="#download" data-i18n="btn_download">Download QBox</a>
+      <a class="btn outline" href="#customize" data-i18n="btn_customize">Customize QBox</a>
+      <a class="btn outline" href="#sign" data-i18n="btn_sign">Sign with your certificate</a>
+    </div>
+    <div class="meta" id="version-meta">
+      <span class="chip">6.0.0 (Build 600)</span>
+      <span class="chip">7.2 MB</span>
+    </div>
+    <div class="video-links">
+      <a class="link" href="#" target="_blank" rel="noopener" data-i18n="video_tutorial">Video tutorial</a>
+    </div>
+  </section>
+
+  <section class="grid container" id="download">
+    <article class="card">
+      <h3 data-i18n="unsigned_title">Download QBox (Unsigned, adapted for iOS 26)</h3>
+      <p class="muted" data-i18n="unsigned_desc">Works on latest iOS. Install via your preferred signing method.</p>
+      <div class="actions">
+        <a class="btn primary" href="#" data-i18n="download_btn">Download .ipa</a>
+        <a class="btn" href="#" data-i18n="source_tutorial">Source Production Tutorial</a>
+      </div>
+    </article>
+
+    <article class="card" id="customize">
+      <h3 data-i18n="customize_title">Customize QBox</h3>
+      <p class="muted" data-i18n="customize_desc">Include your own valid iOS signing certificate for best stability.</p>
+      <div class="actions">
+        <a class="btn" href="#" data-i18n="customize_btn">Open QBox Customizer</a>
+      </div>
+    </article>
+
+    <article class="card" id="ts">
+      <h3 data-i18n="ts_title">QBoxTS 2</h3>
+      <p class="muted" data-i18n="ts_desc">Import TrollStore 2 to install on supported versions.</p>
+      <div class="actions">
+        <a class="btn" href="#" data-i18n="ts_import">Import TrollStore 2</a>
+        <a class="btn" href="#" data-i18n="ts_installer">QBoxTS 2 Installer</a>
+      </div>
+      <p class="badge-line"><span class="chip" data-i18n="ts_support">Supports iOS 15.4–15.7.1 and 16.0–16.6.1</span></p>
+    </article>
+
+    <article class="card">
+      <h3 data-i18n="troll_a">Troll QBox A</h3>
+      <ul class="muted">
+        <li data-i18n="troll_a_1">Supports iPhone XR/XS–13</li>
+        <li data-i18n="troll_a_2">iOS 14.0–14.8.1</li>
+        <li data-i18n="troll_a_3">iOS 15.6 beta 1–5</li>
+      </ul>
+      <a class="btn" href="#" data-i18n="video_tutorial">Video tutorial</a>
+    </article>
+
+    <article class="card">
+      <h3 data-i18n="troll_b">Troll QBox B</h3>
+      <ul class="muted">
+        <li data-i18n="troll_b_1">Supports any device</li>
+        <li data-i18n="troll_b_2">iOS 15.0–15.4.1</li>
+        <li data-i18n="troll_b_3">iOS 15.5 beta 1–4</li>
+      </ul>
+      <a class="btn" href="#" data-i18n="video_tutorial">Video tutorial</a>
+    </article>
+
+    <article class="card" id="sign">
+      <h3 data-i18n="sign_title">Sign QBox</h3>
+      <p class="muted" data-i18n="sign_desc">Sign QBox with your own p12 certificate.</p>
+      <div class="actions">
+        <a class="btn" href="#" data-i18n="sign_btn">Open Signer</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3 data-i18n="tools_title">Tools</h3>
+      <div class="tool-links">
+        <a class="tool" href="#" data-i18n="tool_check">iOS Certificate Check</a>
+        <a class="tool" href="#" data-i18n="tool_change">iOS Certificate Password Change</a>
+      </div>
+    </article>
+
+    <article class="card social">
+      <h3 data-i18n="community_title">Community</h3>
+      <div class="social-links">
+        <a class="social-link" href="#" aria-label="Telegram">Telegram</a>
+        <a class="social-link" href="#" aria-label="Discord">Discord</a>
+        <a class="social-link" href="#" aria-label="X/Twitter">Video tutorial</a>
+      </div>
+      <p class="muted" data-i18n="enterprise_note"><strong>Enterprise (Free)</strong> — If install failed, please consider Customize.</p>
+    </article>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© 2019–2025 qbox.run</p>
+    <p><a href="mailto:qbox@support.example" class="link">Contact: qbox@support.example</a></p>
+    <button id="theme-toggle" class="btn small">Toggle Theme</button>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
