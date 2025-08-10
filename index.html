@@ -1,10 +1,18 @@
-<!DOCTYPE html>
+# Rebuild QBox site with provided links and email, then zip for download
+
+import os, zipfile, pathlib
+
+base = "/mnt/data/qbox-site"
+assets = os.path.join(base, "assets")
+os.makedirs(assets, exist_ok=True)
+
+index_html = """<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>QBox — iOS Apps Signer | Support iOS 12–26</title>
-  <meta name="description" content="QBox is an iOS signing tool that lets you install and test third‑party iOS apps without a computer." />
+  <meta name="description" content="QBox is an iOS signing tool that lets you install and test third-party iOS apps without a computer." />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -28,7 +36,7 @@
 <main>
   <section class="hero container">
     <div class="hero-text" data-i18n="hero_text">
-      QBox is an iOS signing tool that does not require a computer, used for installing and testing third‑party iOS apps.
+      QBox is an iOS signing tool that does not require a computer, used for installing and testing third-party iOS apps.
     </div>
     <div class="cta-row">
       <a class="btn primary" href="#download" data-i18n="btn_download">Download QBox</a>
@@ -40,7 +48,7 @@
       <span class="chip">7.2 MB</span>
     </div>
     <div class="video-links">
-      <a class="link" href="#" target="_blank" rel="noopener" data-i18n="video_tutorial">Video tutorial</a>
+      <a class="link" href="https://gbox.run" target="_blank" rel="noopener" data-i18n="video_tutorial">Video tutorial</a>
     </div>
   </section>
 
@@ -49,8 +57,8 @@
       <h3 data-i18n="unsigned_title">Download QBox (Unsigned, adapted for iOS 26)</h3>
       <p class="muted" data-i18n="unsigned_desc">Works on latest iOS. Install via your preferred signing method.</p>
       <div class="actions">
-        <a class="btn primary" href="#" data-i18n="download_btn">Download .ipa</a>
-        <a class="btn" href="#" data-i18n="source_tutorial">Source Production Tutorial</a>
+        <a class="btn primary" href="https://cdn.gbox.run" data-i18n="download_btn">Download .ipa</a>
+        <a class="btn" href="https://gbox.run" data-i18n="source_tutorial">Source Production Tutorial</a>
       </div>
     </article>
 
@@ -58,7 +66,7 @@
       <h3 data-i18n="customize_title">Customize QBox</h3>
       <p class="muted" data-i18n="customize_desc">Include your own valid iOS signing certificate for best stability.</p>
       <div class="actions">
-        <a class="btn" href="#" data-i18n="customize_btn">Open QBox Customizer</a>
+        <a class="btn" href="https://gbox.run/tool/udid" data-i18n="customize_btn">Open QBox Customizer</a>
       </div>
     </article>
 
@@ -66,8 +74,8 @@
       <h3 data-i18n="ts_title">QBoxTS 2</h3>
       <p class="muted" data-i18n="ts_desc">Import TrollStore 2 to install on supported versions.</p>
       <div class="actions">
-        <a class="btn" href="#" data-i18n="ts_import">Import TrollStore 2</a>
-        <a class="btn" href="#" data-i18n="ts_installer">QBoxTS 2 Installer</a>
+        <a class="btn" href="https://ts.gbox.run" data-i18n="ts_import">Import TrollStore 2</a>
+        <a class="btn" href="https://ts.gbox.run" data-i18n="ts_installer">QBoxTS 2 Installer</a>
       </div>
       <p class="badge-line"><span class="chip" data-i18n="ts_support">Supports iOS 15.4–15.7.1 and 16.0–16.6.1</span></p>
     </article>
@@ -79,7 +87,7 @@
         <li data-i18n="troll_a_2">iOS 14.0–14.8.1</li>
         <li data-i18n="troll_a_3">iOS 15.6 beta 1–5</li>
       </ul>
-      <a class="btn" href="#" data-i18n="video_tutorial">Video tutorial</a>
+      <a class="btn" href="https://gbox.run" data-i18n="video_tutorial">Video tutorial</a>
     </article>
 
     <article class="card">
@@ -89,31 +97,31 @@
         <li data-i18n="troll_b_2">iOS 15.0–15.4.1</li>
         <li data-i18n="troll_b_3">iOS 15.5 beta 1–4</li>
       </ul>
-      <a class="btn" href="#" data-i18n="video_tutorial">Video tutorial</a>
+      <a class="btn" href="https://gbox.run" data-i18n="video_tutorial">Video tutorial</a>
     </article>
 
     <article class="card" id="sign">
       <h3 data-i18n="sign_title">Sign QBox</h3>
       <p class="muted" data-i18n="sign_desc">Sign QBox with your own p12 certificate.</p>
       <div class="actions">
-        <a class="btn" href="#" data-i18n="sign_btn">Open Signer</a>
+        <a class="btn" href="https://gbox.run" data-i18n="sign_btn">Open Signer</a>
       </div>
     </article>
 
     <article class="card">
       <h3 data-i18n="tools_title">Tools</h3>
       <div class="tool-links">
-        <a class="tool" href="#" data-i18n="tool_check">iOS Certificate Check</a>
-        <a class="tool" href="#" data-i18n="tool_change">iOS Certificate Password Change</a>
+        <a class="tool" href="https://t.gbox.run" data-i18n="tool_check">iOS Certificate Check</a>
+        <a class="tool" href="https://t.gbox.run" data-i18n="tool_change">iOS Certificate Password Change</a>
       </div>
     </article>
 
     <article class="card social">
       <h3 data-i18n="community_title">Community</h3>
       <div class="social-links">
-        <a class="social-link" href="#" aria-label="Telegram">Telegram</a>
-        <a class="social-link" href="#" aria-label="Discord">Discord</a>
-        <a class="social-link" href="#" aria-label="X/Twitter">Video tutorial</a>
+        <a class="social-link" href="https://gbox.run" aria-label="Telegram">Telegram</a>
+        <a class="social-link" href="https://gbox.run" aria-label="Discord">Discord</a>
+        <a class="social-link" href="https://gbox.run" aria-label="X/Twitter">Video tutorial</a>
       </div>
       <p class="muted" data-i18n="enterprise_note"><strong>Enterprise (Free)</strong> — If install failed, please consider Customize.</p>
     </article>
@@ -123,7 +131,7 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <p>© 2019–2025 qbox.run</p>
-    <p><a href="mailto:qbox@support.example" class="link">Contact: qbox@support.example</a></p>
+    <p><a href="mailto:wdnr819@yahoo.com" class="link">Contact: wdnr819@yahoo.com</a></p>
     <button id="theme-toggle" class="btn small">Toggle Theme</button>
   </div>
 </footer>
@@ -131,3 +139,215 @@
 <script src="script.js"></script>
 </body>
 </html>
+"""
+
+styles_css = """
+:root{
+  --bg: #0b0d10;
+  --card:#12161b;
+  --txt:#e8eef5;
+  --muted:#93a2b8;
+  --brand:#6aa9ff;
+  --brand-2:#8cffcc;
+  --stroke:#1d232b;
+  --chip:#1a2230;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;line-height:1.5}
+.container{width:min(1100px, 92%);margin-inline:auto}
+a{color:var(--brand);text-decoration:none}
+a.link{border-bottom:1px dashed var(--brand)}
+.site-header{position:sticky;top:0;backdrop-filter:saturate(150%) blur(8px);background:linear-gradient(180deg,rgba(11,13,16,.9),rgba(11,13,16,.6) 60%,transparent);border-bottom:1px solid var(--stroke);z-index:10}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:42px;height:42px}
+.brand-title{font-size:1.4rem;margin:0}
+.brand-subtitle{margin:0;color:var(--muted);font-size:.92rem}
+.lang .lang-btn{background:transparent;border:1px solid var(--stroke);color:var(--txt);padding:6px 10px;margin-left:8px;border-radius:8px;cursor:pointer}
+.lang .lang-btn.active{border-color:var(--brand);box-shadow:0 0 0 2px color-mix(in oklab, var(--brand) 30%, transparent) inset}
+.hero{padding:44px 0 10px 0}
+.hero-text{font-size:1.15rem;color:var(--muted);max-width:70ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--stroke);background:#0f1318;color:var(--txt);padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
+.btn.primary{background:linear-gradient(135deg,var(--brand) 0%, var(--brand-2) 100%);color:#0a0a0a;border-color:transparent}
+.btn.outline{background:transparent}
+.btn.small{padding:6px 10px;font-size:.9rem}
+.meta{display:flex;gap:10px;flex-wrap:wrap}
+.chip{background:var(--chip);border:1px solid var(--stroke);color:var(--txt);padding:4px 10px;border-radius:999px;font-size:.85rem}
+.grid{display:grid;grid-template-columns:repeat(12, 1fr);gap:16px;margin:26px 0 60px}
+.card{grid-column:span 6;background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px}
+.card h3{margin-top:0}
+.card .muted{color:var(--muted)}
+.card .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.card .tool-links{display:flex;gap:16px;flex-wrap:wrap}
+.card.social .social-links{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0}
+.badge-line{margin-top:10px}
+.site-footer{border-top:1px solid var(--stroke);padding:20px 0;background:linear-gradient(0deg,rgba(255,255,255,0.02),transparent)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+/* Responsive */
+@media (max-width: 900px){
+  .card{grid-column:span 12}
+}
+/* Light Theme */
+:root.theme-light{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --txt:#0c1217;
+  --muted:#58677b;
+  --brand:#3b82f6;
+  --brand-2:#22c55e;
+  --stroke:#e5eaf0;
+  --chip:#eef3f9;
+}
+"""
+
+script_js = """
+// Theme toggle
+const toggle = document.getElementById('theme-toggle');
+toggle?.addEventListener('click', ()=>{
+  const root = document.documentElement;
+  const light = root.classList.toggle('theme-light');
+  try{ localStorage.setItem('qbox-theme', light ? 'light' : 'dark'); }catch(e){}
+});
+// Restore theme
+try{
+  const saved = localStorage.getItem('qbox-theme');
+  if(saved === 'light'){ document.documentElement.classList.add('theme-light'); }
+}catch(e){}
+
+// Simple EN/AR i18n
+const dict = {
+  ar: {
+    hero_text: "QBox هو أداة لتوقيع تطبيقات iOS بدون كمبيوتر لتثبيت واختبار تطبيقات الطرف الثالث بسهولة.",
+    btn_download: "تحميل QBox",
+    btn_customize: "تخصيص QBox",
+    btn_sign: "توقيع بشهادتك",
+    video_tutorial: "فيديو شرح",
+    unsigned_title: "تحميل QBox (غير موقّع، متوافق مع iOS 26)",
+    unsigned_desc: "يعمل على آخر إصدارات iOS. ثبّته بالطريقة التي تفضّلها للتوقيع.",
+    download_btn: "تحميل ملف .ipa",
+    source_tutorial: "شرح تجهيز السورس",
+    customize_title: "تخصيص QBox",
+    customize_desc: "أدرج شهادة توقيع iOS صالحة للحصول على أفضل ثبات.",
+    customize_btn: "افتح مُخصص QBox",
+    ts_title: "QBoxTS 2",
+    ts_desc: "استورد TrollStore 2 للتثبيت على الإصدارات المدعومة.",
+    ts_import: "استيراد TrollStore 2",
+    ts_installer: "مثبت QBoxTS 2",
+    ts_support: "يدعم iOS 15.4–15.7.1 و 16.0–16.6.1",
+    troll_a: "Troll QBox A",
+    troll_a_1: "يدعم iPhone XR/XS–13",
+    troll_a_2: "iOS ‏14.0–14.8.1",
+    troll_a_3: "iOS ‏15.6 beta 1–5",
+    troll_b: "Troll QBox B",
+    troll_b_1: "يدعم أي جهاز",
+    troll_b_2: "iOS ‏15.0–15.4.1",
+    troll_b_3: "iOS ‏15.5 beta 1–4",
+    sign_title: "توقيع QBox",
+    sign_desc: "وقّع QBox بشهادة p12 الخاصة بك.",
+    sign_btn: "فتح أداة التوقيع",
+    tools_title: "أدوات",
+    tool_check: "التحقق من شهادة iOS",
+    tool_change: "تغيير كلمة سر شهادة iOS",
+    community_title: "المجتمع",
+    enterprise_note: "‏<strong>حساب Enterprise (مجاني)</strong> — إذا فشل التثبيت جرّب التخصيص."
+  }
+};
+
+function setLang(lang){
+  const isAr = lang === 'ar';
+  document.documentElement.lang = isAr ? 'ar' : 'en';
+  document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(isAr && dict.ar[key]){
+      el.innerHTML = dict.ar[key];
+    }
+  });
+  document.getElementById('lang-en')?.classList.toggle('active', !isAr);
+  document.getElementById('lang-ar')?.classList.toggle('active', isAr);
+  try{ localStorage.setItem('qbox-lang', lang); }catch(e){}
+}
+
+document.getElementById('lang-en')?.addEventListener('click', ()=>setLang('en'));
+document.getElementById('lang-ar')?.addEventListener('click', ()=>setLang('ar'));
+
+try{
+  const savedLang = localStorage.getItem('qbox-lang');
+  if(savedLang){ setLang(savedLang); }
+}catch(e){}
+"""
+
+logo_svg = """<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="44" fill="url(#g)"/>
+  <g fill="#0b0d10">
+    <path d="M64 84h128v20H64zM64 116h128v20H64zM64 148h128v20H64z" opacity=".9"/>
+    <circle cx="88" cy="176" r="10"/>
+    <circle cx="168" cy="176" r="10"/>
+  </g>
+</svg>
+"""
+
+favicon_svg = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#22c55e"/>
+  </linearGradient></defs>
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="url(#g)"/>
+  <path d="M18 22h28v6H18zM18 30h28v6H18zM18 38h28v6H18z" fill="#0b0d10"/>
+</svg>
+"""
+
+readme = """# QBox — Landing Page
+
+Deployed example: https://mimo050.github.io/qbox-site/
+
+## Quick Start (GitHub Pages)
+1. Create a public repo named `qbox-site`.
+2. Upload these files to the repo root.
+3. Settings → Pages → Source: `main` / `(root)`.
+4. Open: `https://YOUR-USERNAME.github.io/qbox-site/`
+
+## Links configured (same as gbox.run)
+- .ipa download: https://cdn.gbox.run
+- Customizer: https://gbox.run/tool/udid
+- TrollStore 2: https://ts.gbox.run
+- Tools: https://t.gbox.run
+- Video/tutorial buttons point to https://gbox.run
+- Mail: wdnr819@yahoo.com
+"""
+
+# Write files
+with open(os.path.join(base, "index.html"), "w", encoding="utf-8") as f:
+    f.write(index_html)
+
+with open(os.path.join(base, "styles.css"), "w", encoding="utf-8") as f:
+    f.write(styles_css)
+
+with open(os.path.join(base, "script.js"), "w", encoding="utf-8") as f:
+    f.write(script_js)
+
+os.makedirs(assets, exist_ok=True)
+with open(os.path.join(assets, "qbox-logo.svg"), "w", encoding="utf-8") as f:
+    f.write(logo_svg)
+
+with open(os.path.join(assets, "favicon.svg"), "w", encoding="utf-8") as f:
+    f.write(favicon_svg)
+
+with open(os.path.join(base, "README.md"), "w", encoding="utf-8") as f:
+    f.write(readme)
+
+# Zip
+zip_path = "/mnt/data/qbox-site-updated.zip"
+with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
+    for root, _, files in os.walk(base):
+        for name in files:
+            fp = os.path.join(root, name)
+            z.write(fp, arcname=os.path.relpath(fp, base))
+
+zip_path
